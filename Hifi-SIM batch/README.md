@@ -16,6 +16,7 @@ HiFiSIM_NC_batch.m is the script file, and imgsave32seq.m is a modified saving r
   - split slices into distinct output tifs,
   - estimate illumination pattern only for first file and use for other image files
   - estimate illumination pattern only for first slice and use for other slices within an image file
+  - normalize intensity to maximum for each image (was a default in HiFi-SIM code)
   - save output images in subfolders
 - set the optical configuration:
   - raw image pixel size in nm
