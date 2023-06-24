@@ -29,3 +29,5 @@ HiFiSIM_NC_batch.m is the script file, and imgsave32seq.m is a modified saving r
     - attenuation stength (for optical sectioning)
     - damping factor
     - attenuation FWHM
+ 
+ ![COS cell labeled for actin and processed for widefield, Wiener and HiFi-SIM reconstruction](https://www.neurocytolab.org/up/HiFi-SIM.gif)
