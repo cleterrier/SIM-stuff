@@ -4,33 +4,37 @@ tStart=tic;
 
 %% Define variables
 
-pathname='/Users/christo/Desktop/code/C1_N6 movie 10f';
+pathname='/Users/christo/Desktop/test/raw';
 
 makeWF=1; % save WF image
 makeWR=1; % process Wiener reconstruction
 makeHF=1; % save HiFi reconstruction
 
-splitSlices=1; % split slices for multiplane files
+splitSlices=0; % split slices for multiplane files
 paramFirst=0; % only estimate parameters for first image
 paramSlice=1; % only estimate parameters for first slice of multiplane files
 normImages=0; % normalize image intensities from 0 to 255 at max intensity before saving
-savePRS=1; % save in subfolders  
+savePRS=0; % save in subfolders  
 
-nrDirs=3; % number of angles
-nrPhases=3; % number of phases
-
+im3D=0; % is 3D-SIM
+lambda=525; % emission wavelenght in nm
 pixelsize=65; % image pixel size in nm
 NA=1.49; % objective numerical aperture
-lambda=525; % emission wavelenght in nm
 
-attStrength=0.5;
+attStrength=0.9;
 a=1; % damping factor：β
 attFWHM=1.0;
 
-im3D=0; % is 3D-SIM
+if im3D==0
+    nrDirs=3; % number of angles
+    nrPhases=3; % number of phases
+else
+    nrDirs=3; % number of angles
+    nrPhases=5; % number of phases  
+end
+
 w1=1.2;  % Initial optimization Wiener constant：[0.9-2.5]
 w2=0.1;
-
 ApoFWHM=0; % for 0 automatic setting
 
 %% Preparation
