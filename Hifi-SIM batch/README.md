@@ -1,4 +1,4 @@
-This is a Matlab script for HiFi-SIM that allows for batch processing of raw SIM data inside a folder. It will process single-image tif files and stack files. It is compatible with raw SIM images as a series of planes (order: phases, angles) and as a 3x3 (phases, angles) mosaic (raw format from the Nikon N-SIM microscope). It can output the reconstructed widefiled images, classical Wiener reconstruction, and HiFi-SIM reconstruction.
+This is a Matlab script for HiFi-SIM that allows to batch process raw SIM data files inside a given folder. It will process single-image tif files and stack files. It is compatible with raw SIM images as a series of planes (order: phases, angles) and as a 3x3 (phases, angles) mosaic (raw format from the Nikon N-SIM microscope). It can output the reconstructed widefiled images, classical Wiener reconstruction, and HiFi-SIM reconstruction.
 To use, place the HiFiSIM_NC_batch.m and imgsave32seq.m files in the "Main_fun" folder of the HiFi-SIM Matlab code [available as a supplement](https://www.nature.com/articles/s41377-021-00513-w#Sec15) to the Hifi-SIM article:
 
 Gang Wen, Simin Li, Linbo Wang, Xiaohu Chen, Zhenglong Sun, Yong Liang, Xin Jin, Yifan Xing, Yaming Jiu, Yuguo Tang & Hui Li.
@@ -16,6 +16,7 @@ HiFiSIM_NC_batch.m is the script file, and imgsave32seq.m is a modified saving r
   - split slices into distinct output tifs,
   - estimate illumination pattern only for first file and use for other image files
   - estimate illumination pattern only for first slice and use for other slices within an image file
+  - save output images in subfolders
 - set the optical configuration:
   - raw image pixel size in nm
   - objective NA
