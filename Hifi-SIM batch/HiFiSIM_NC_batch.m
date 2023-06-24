@@ -14,9 +14,7 @@ splitSlices=1; % split slices for multiplane files
 paramFirst=0; % only estimate parameters for first image
 paramSlice=1; % only estimate parameters for first slice of multiplane files
 normImages=0; % normalize image intensities from 0 to 255 at max intensity before saving
-savePRS=0; % save viewX.tif in subfolders for PRS training  
-
-im3D=0; % is 3D-SIM
+savePRS=1; % save in subfolders  
 
 nrDirs=3; % number of angles
 nrPhases=3; % number of phases
@@ -29,6 +27,7 @@ attStrength=0.5;
 a=1; % damping factor：β
 attFWHM=1.0;
 
+im3D=0; % is 3D-SIM
 w1=1.2;  % Initial optimization Wiener constant：[0.9-2.5]
 w2=0.1;
 
@@ -527,8 +526,13 @@ for fileid=1:filecount
             else
                 outnameWR=param.filename;
                 in = strfind(outnameWR,'_view');
-                outdirnameWR = outnameWR(1:in-1);
-                outshortnameWR = outnameWR(in+1:strlength(outnameWR));
+                if isempty(in)
+                    outdirnameWR = outnameWR(1:strlength(outnameWR)-4);
+                    outshortnameWR = 'WR.tif';
+                else
+                    outdirnameWR = outnameWR(1:in-1);
+                    outshortnameWR = outnameWR(in+1:strlength(outnameWR));
+                end
                 savedirfullWR = [param.savedirWR,filesep,outdirnameWR];
                 if ~exist(savedirfullWR,'dir')
                     mkdir(savedirfullWR);
@@ -600,8 +604,13 @@ for fileid=1:filecount
             else
                 outnameWF=param.filename;
                 in = strfind(outnameWF,'_view');
-                outdirnameWF = outnameWF(1:in-1);
-                outshortnameWF = outnameWF(in+1:strlength(outnameWF));
+                if isempty(in)
+                    outdirnameWF = outnameWF(1:strlength(outnameWF)-4);
+                    outshortnameWF = 'WF.tif';
+                else
+                    outdirnameWF = outnameWF(1:in-1);
+                    outshortnameWF = outnameWF(in+1:strlength(outnameWF));
+                end
                 savedirfullWF = [param.savedirWF,filesep,outdirnameWF];
                 if ~exist(savedirfullWF,'dir')
                     mkdir(savedirfullWF);
@@ -641,8 +650,13 @@ for fileid=1:filecount
             else
                 outnameHF=param.filename;
                 in = strfind(outnameHF,'_view');
-                outdirnameHF = outnameHF(1:in-1);
-                outshortnameHF = outnameHF(in+1:strlength(outnameHF));
+                if isempty(in)
+                    outdirnameHF = outnameHF(1:strlength(outnameHF)-4);
+                    outshortnameHF = 'HF.tif';
+                else
+                    outdirnameHF = outnameHF(1:in-1);
+                    outshortnameHF = outnameHF(in+1:strlength(outnameHF));
+                end
                 savedirfullHF = [param.savedirHF,filesep,outdirnameHF];
                 if ~exist(savedirfullHF,'dir')
                     mkdir(savedirfullHF);
