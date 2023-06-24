@@ -4,7 +4,7 @@ tStart=tic;
 
 %% Define variables
 
-pathname='/Users/christo/Desktop/test/raw';
+pathname='/Users/christo/Travail/Labo/Processing/Various/SIM-stuff/Hifi-SIM batch/data/raw';
 
 makeWF=1; % save WF image
 makeWR=1; % process Wiener reconstruction
