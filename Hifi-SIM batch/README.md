@@ -15,7 +15,7 @@ HiFiSIM_NC_batch.m is the script file, and imgsave32seq.m is a modified saving r
   - Wiener reconstruction
   - HiFi-SIM reconstruction
 - set various options for processing:
-  - set 2D (3 angles x 3 phases) or 3D (3 angles x 5 phases) input images (Hifi-SIM will process 3D images as independant 2D planes)
+  - set 2D (3 angles x 3 phases) or 3D (3 angles x 5 phases) input images (Hifi-SIM 2D reconstruction from 3D-SIM images is untested)
   - split slices into distinct output tifs,
   - estimate illumination pattern only for first file and use for other image files
   - estimate illumination pattern only for first slice and use for other slices within an image file
