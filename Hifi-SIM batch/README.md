@@ -15,17 +15,17 @@ HiFiSIM_NC_batch.m is the script file, and imgsave32seq.m is a modified saving r
   - Wiener reconstruction
   - HiFi-SIM reconstruction
 - set various options for processing:
+  - set 2D (3 angles x 3 phases) or 3D (3 angles x 5 phases) input images (Hifi-SIM will process 3D images as independant 2D planes)
   - split slices into distinct output tifs,
   - estimate illumination pattern only for first file and use for other image files
   - estimate illumination pattern only for first slice and use for other slices within an image file
   - normalize intensity to maximum for each image (was a default in HiFi-SIM code)
   - save output images in subfolders
 - set the optical configuration:
-  - raw image pixel size in nm
+  - emission wavelength (nm)
+  - raw image pixel size (nm)
   - objective NA
-  - emission wavelength
 - set the Hifi-SIM parameters:
     - attenuation stength (for optical sectioning)
     - damping factor
     - attenuation FWHM
-- declare 3D-SIM for slice-by-slice processing (not tested, might be non-functional)
