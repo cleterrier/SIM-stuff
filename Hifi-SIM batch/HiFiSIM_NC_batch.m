@@ -4,11 +4,13 @@ tStart=tic;
 
 %% Define variables
 
-pathname='/Users/christo/Travail/Labo/Processing/Various/SIM-stuff/Hifi-SIM batch/data/raw';
+pathname='/Users/christo/Travail/Data NSIM/230705 b2scla#4 (div6+2)/test';
 
 makeWF=1; % save WF image
 makeWR=1; % process Wiener reconstruction
 makeHF=1; % save HiFi reconstruction
+
+scaleum = 0.0325; % pixel size in nm for final image
 
 splitSlices=0; % split slices for multiplane files
 paramFirst=0; % only estimate parameters for first image
@@ -17,7 +19,7 @@ normImages=0; % normalize image intensities from 0 to 255 at max intensity befor
 savePRS=0; % save in subfolders  
 
 im3D=0; % is 3D-SIM
-lambda=525; % emission wavelenght in nm
+lambda=520; % emission wavelenght in nm
 pixelsize=65; % image pixel size in nm
 NA=1.49; % objective numerical aperture
 
@@ -525,7 +527,7 @@ for fileid=1:filecount
                 else
                     outnameWR=strrep(param.filename, '.tif', ['_s',num2str(sliceid,'%03d'),'_WR.tif']);
                 end
-                imgsave32seq(Wiener, fullfile(param.savedirWR,outnameWR), app);
+                imgsave32seq(Wiener, fullfile(param.savedirWR,outnameWR), app, scaleum);
 
             else
                 outnameWR=param.filename;
@@ -541,7 +543,7 @@ for fileid=1:filecount
                 if ~exist(savedirfullWR,'dir')
                     mkdir(savedirfullWR);
                 end
-                imgsave32seq(Wiener, fullfile(savedirfullWR,outshortnameWR), app);          
+                imgsave32seq(Wiener, fullfile(savedirfullWR,outshortnameWR), app, scaleum);          
             end   
         
         end
@@ -604,7 +606,7 @@ for fileid=1:filecount
                 else
                     outnameWF=strrep(param.filename, '.tif', ['_s',num2str(sliceid,'%03d'),'_WF.tif']);
                 end
-                imgsave32seq(WF, fullfile(param.savedirWF,outnameWF), app);
+                imgsave32seq(WF, fullfile(param.savedirWF,outnameWF), app, scaleum);
             else
                 outnameWF=param.filename;
                 in = strfind(outnameWF,'_view');
@@ -619,7 +621,7 @@ for fileid=1:filecount
                 if ~exist(savedirfullWF,'dir')
                     mkdir(savedirfullWF);
                 end
-                imgsave32seq(WF, fullfile(savedirfullWF,outshortnameWF), app);          
+                imgsave32seq(WF, fullfile(savedirfullWF,outshortnameWF), app, scaleum);          
             end   
     
         end
@@ -650,7 +652,7 @@ for fileid=1:filecount
                 else
                     outnameHF=strrep(param.filename, '.tif', ['_s',num2str(sliceid,'%03d'),'_HF.tif']);
                 end
-                imgsave32seq(HiFi, fullfile(savedirHF,outnameHF), app);
+                imgsave32seq(HiFi, fullfile(savedirHF,outnameHF), app, scaleum);
             else
                 outnameHF=param.filename;
                 in = strfind(outnameHF,'_view');
@@ -665,7 +667,7 @@ for fileid=1:filecount
                 if ~exist(savedirfullHF,'dir')
                     mkdir(savedirfullHF);
                 end
-                imgsave32seq(HiFi, fullfile(savedirfullHF,outshortnameHF), app);          
+                imgsave32seq(HiFi, fullfile(savedirfullHF,outshortnameHF), app, scaleum);          
             end        
        
         end % end if HR
