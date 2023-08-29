@@ -10,8 +10,6 @@ makeWF=1; % save WF image
 makeWR=1; % process Wiener reconstruction
 makeHF=1; % save HiFi reconstruction
 
-scaleum = 0.0325; % pixel size in nm for final image
-
 splitSlices=0; % split slices for multiplane files
 paramFirst=0; % only estimate parameters for first image
 paramSlice=1; % only estimate parameters for first slice of multiplane files
@@ -20,7 +18,8 @@ savePRS=0; % save in subfolders
 
 im3D=0; % is 3D-SIM
 lambda=520; % emission wavelenght in nm
-pixelsize=65; % image pixel size in nm
+pixelsize=65; % input image pixel size in nm
+finalpixelsize=32.5; % reconstructed image pixel size in nm
 NA=1.49; % objective numerical aperture
 
 attStrength=0.9;
@@ -40,6 +39,8 @@ w2=0.1;
 ApoFWHM=0; % for 0 automatic setting
 
 %% Preparation
+
+scaleum =finalpixelsize/1000 ; % pixel size in um for final image
 
 if im3D==0
     param.phaOff=0;   
